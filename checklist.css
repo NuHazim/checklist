@@ -1,0 +1,50 @@
+body{
+    padding: 10px;
+}
+#groupbox{
+    display:flex;
+    width:100%;
+    margin:20px;
+    flex-wrap: wrap;
+}
+details{
+    position:relative;
+    font-size: 25px;
+    margin:20px;
+    padding:20px;
+    border:2px solid black;
+    border-radius: 15px;
+    user-select: none;
+}
+details[open]{
+    padding:20px;
+    border:2px solid black;
+    border-radius: 15px;
+}
+summary{
+    cursor:pointer;
+}
+.list::before{
+    content: "🔴";
+}
+.list{
+    user-select: none;
+    transition: 0.5s ease;
+}
+.checked::before{
+    content: "🟢";
+    position:absolute;
+    left:20px;
+}
+.checked{
+    user-select: none;
+    margin-left:50px;
+    transition: 0.5s ease;
+    text-decoration: line-through;
+}
+.x{
+    margin-left: 50px;
+}
+form{
+    margin:20px;
+}
