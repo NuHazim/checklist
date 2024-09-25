@@ -1,50 +1,159 @@
-body{
+body {
     padding: 10px;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
-#groupbox{
-    display:flex;
-    width:100%;
-    margin:20px;
+
+h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Ensure the group container is flexible and responsive */
+#groupbox {
+    display: flex;
+    width: 100%;
+    margin: 20px 0;
     flex-wrap: wrap;
+    gap: 20px; /* Add spacing between elements */
+    justify-content: center; /* Center items on smaller screens */
 }
-details{
-    position:relative;
+
+/* Style each details block */
+details {
+    position: relative;
     font-size: 25px;
-    margin:20px;
-    padding:20px;
-    border:2px solid black;
+    margin: 10px;
+    padding: 20px;
+    border: 2px solid black;
     border-radius: 15px;
     user-select: none;
+    flex: 1 1 300px; /* Flexible width with minimum size */
+    max-width: 400px; /* Ensure it doesn't get too wide */
+    box-sizing: border-box; /* Include padding and border in size */
 }
-details[open]{
-    padding:20px;
-    border:2px solid black;
+
+/* Handle when details is opened */
+details[open] {
+    padding: 20px;
+    border: 2px solid black;
     border-radius: 15px;
 }
-summary{
-    cursor:pointer;
+
+/* Style the summary (the clickable part) */
+summary {
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
 }
-.list::before{
+
+/* Ensure lists are styled properly */
+.list::before {
     content: "🔴";
 }
-.list{
+
+.list {
     user-select: none;
     transition: 0.5s ease;
+    display: inline-block;
 }
-.checked::before{
+
+.checked::before {
     content: "🟢";
-    position:absolute;
-    left:20px;
+    position: absolute;
+    left: 20px;
 }
-.checked{
+
+.checked {
     user-select: none;
-    margin-left:50px;
+    margin-left: 50px;
     transition: 0.5s ease;
     text-decoration: line-through;
 }
-.x{
-    margin-left: 50px;
+
+/* Style for remove (X) button */
+.x {
+    margin-left: 20px;
+    padding: 5px 10px;
+    font-size: 0.9em;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
-form{
-    margin:20px;
+
+/* Style the form at the top */
+form {
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 300px; /* Limit input width */
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Responsive media queries */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    details {
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    .x {
+        margin-left: 10px;
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.2em;
+    }
+
+    input[type="text"] {
+        max-width: 100%;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+    }
+
+    details {
+        font-size: 18px;
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    summary {
+        font-size: 1.1em;
+    }
+
+    .x {
+        margin-left: 5px;
+        font-size: 0.8em;
+        padding: 5px;
+    }
 }
