@@ -51,6 +51,9 @@ function createGroupElement(groupName, listItems) {
     details.appendChild(form);
     groupbox.appendChild(details);
 
+    // Store groupName in the details element to reference it later
+    details.dataset.groupName = groupName;
+
     // Load the existing list items for the group
     listItems.forEach(item => {
         addListItem(details, item.name, item.checked);
@@ -96,13 +99,13 @@ function addListItem(details, itemName, isChecked) {
     // Remove list item event
     x2.addEventListener("click", function () {
         div.remove();
-        removeListItem(details.querySelector("summary").textContent, itemName);
+        removeListItem(details.dataset.groupName, itemName); // Use dataset for group name
     });
 
     // Toggle check/uncheck event
     h2.addEventListener("click", function () {
         h2.classList.toggle("checked");
-        updateCheckStatus(details.querySelector("summary").textContent, itemName, h2.classList.contains("checked"));
+        updateCheckStatus(details.dataset.groupName, itemName, h2.classList.contains("checked")); // Use dataset for group name
     });
 }
 
